@@ -13,12 +13,15 @@ system requirements:
 2-as celery is used as an extra to provide some periodic tasks on redis-server
     which isn't compitable with windows 
     the file named Ad-Aware96Install.msi located in src/redis/Ad-Aware96Install.msi must be 
-    installed if testing the feature is reuqired
+    installed if testing the feature is required
     **consider using these commands on different cmd windows inaddtion to the ordinary run_server cmd window:
             celery -A project.celery beat  -l info
             celery -A project.celery --pool=solo worker  -l info  
         
 notes:
 1-all products objects are ordered using price as required on the tasks requirements
+2-all useres can get prodcuts but only the owner can update and delete 
+3-only authenticate user can post new prodct 
+4-consider changing the database host configurations insde of project/settings.py from 'loaclhost' to 'db' if running server on docker 
 
 

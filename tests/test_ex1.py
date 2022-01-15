@@ -5,7 +5,6 @@ from rest_framework.test import APIClient, APITestCase
 from mixer.backend.django import mixer
 from django.test import TestCase
 
-
 pytest_mark = pytest.mark.django_db
 
 
@@ -22,6 +21,12 @@ class Test_Products_APIViews(TestCase):
         assert response.json != None
         assert response.status_code == 200
         assert product.prd_name == 'labtop'
+
+
+@pytest.mark.django_db
+def test_user_creation():
+    user = User.objects.create_user("test_user", "test@gmail.com", "password")
+    assert user.username == "test_user"
 
 
 # class Test_authentication(APITestCase):
